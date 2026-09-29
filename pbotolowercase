@@ -9,8 +9,7 @@ for mod_dir in @*/; do
 	for pbofile in $mod_dir/addons/*.pbo; do
 		if [ "$pbofile" != "${pbofile,,}" ]; then
 			echo "[I]	 Converting $pbofile to lowercase"
-			cp $pbofile ${pbofile,,}
-			rm $pbofile
+			mv $pbofile ${pbofile,,}
 		fi
 
 	done
