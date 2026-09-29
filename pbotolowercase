@@ -1,0 +1,19 @@
+#!/bin/bash
+
+shopt -s nullglob
+
+echo "Converting PBO filenames to lowercase."
+
+for mod_dir in @*/; do
+	echo "[I] Working in $mod_dir"
+	for pbofile in $mod_dir/addons/*.pbo; do
+		if [ "$pbofile" != "${pbofile,,}" ]; then
+			echo "[I]	 Converting $pbofile to lowercase"
+			cp $pbofile ${pbofile,,}
+			rm $pbofile
+		fi
+
+	done
+done
+
+echo "Conversion finished. Happy modding!"
